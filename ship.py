@@ -15,17 +15,19 @@ class Ship(object):
 
     def draw(self, screen):
 
-        pt1 = [20 * math.sin(self.rot) + self.loc['x'], 20 * math.cos(self.rot) + self.loc['y']]
-        pt2 = [12 * math.sin(self.rot + (3 * (math.pi) / 4)) + self.loc['x'],
-               12 * math.cos(self.rot + (3 * (math.pi) / 4)) + self.loc['y']]
-        pt3 = [12 * math.sin(self.rot + (5 * (math.pi) / 4)) + self.loc['x'],
-               12 * math.cos(self.rot + (5 * (math.pi) / 4)) + self.loc['y']]
+        ox = self.GAME.offset['x']
+        oy = self.GAME.offset['y']
+        pt1 = [20 * math.sin(self.rot) + self.loc['x'] - ox , 20 * math.cos(self.rot) + self.loc['y'] - oy]
+        pt2 = [12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'] - ox,
+               12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y'] - oy]
+        pt3 = [12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'] - ox,
+               12 * math.cos(self.rot + (5 * math.pi / 4)) + self.loc['y'] - oy]
 
         pygame.draw.line(screen, (255, 255, 255), (pt1[0], pt1[1]),
                          (pt2[0], pt2[1]))
         pygame.draw.line(screen, (255, 255, 255), (pt2[0], pt2[1]),
-                         (self.loc['x'], self.loc['y']))
-        pygame.draw.line(screen, (255, 255, 255), (self.loc['x'], self.loc['y']),
+                         (self.loc['x']-ox, self.loc['y']-oy))
+        pygame.draw.line(screen, (255, 255, 255), (self.loc['x']-ox, self.loc['y']-oy),
                          (pt3[0], pt3[1]))
         pygame.draw.line(screen, (255, 255, 255), (pt3[0], pt3[1]),
                          (pt1[0], pt1[1]))
@@ -49,9 +51,9 @@ class Ship(object):
 
         # Update rotation
         if self.rot > 2 * math.pi:
-            self.rot = self.rot - (2 * math.pi)
+            self.rot -= 2 * math.pi
         elif self.rot < 0:
-            self.rot = self.rot + (2 * math.pi)
+            self.rot -= 2 * math.pi
 
         # Update location
         if self.speed > 0:
@@ -67,3 +69,19 @@ class Ship(object):
         if self.loc['y'] < 0:
             self.loc['y'] = 0
 
+        # Update the screen offset
+        nox = 0
+        noy = 0
+        if self.loc['x'] > (self.GAME.screen_width/2):
+            nox = self.loc['x'] - (self.GAME.screen_width/2)
+
+        if self.loc['x'] > self.GAME.width - (self.GAME.screen_width/2):
+            nox = self.GAME.width - self.GAME.screen_width
+
+        if self.loc['y'] > (self.GAME.screen_height/2):
+            noy = self.loc['y'] - (self.GAME.screen_height/2)
+
+        if self.loc['y'] > self.GAME.height - (self.GAME.screen_height/2):
+            nox = self.GAME.height - self.GAME.screen_height
+
+        self.GAME.set_offset(nox, noy)

@@ -38,7 +38,8 @@ class Game(object):
 
     def game_setup(self):
         game_assets.append(Ship(GAME))
-        game_assets.append(Star(GAME))
+        for i in range(0, 400):
+            game_assets.append(Star(GAME))
 
 
 if __name__ == '__main__':
