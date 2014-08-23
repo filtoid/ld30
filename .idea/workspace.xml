@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94cf8ea0-576d-4ed0-a1ca-35bf5fc11ca1" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/asteroid.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asteroid.py" afterPath="$PROJECT_DIR$/asteroid.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/main.py" afterPath="$PROJECT_DIR$/main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/missile.py" afterPath="$PROJECT_DIR$/missile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ship.py" afterPath="$PROJECT_DIR$/ship.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/stars.py" afterPath="$PROJECT_DIR$/stars.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ld30.iws" />
@@ -32,8 +33,8 @@
       <file leaf-file-name="main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="1230">
-              <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="376" max-vertical-offset="1245">
+              <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -41,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="asteroid.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="asteroid.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/asteroid.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="1095">
-              <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.57429045" vertical-offset="196" max-vertical-offset="1755">
+              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -53,11 +54,31 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/utils.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="1545">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="780">
+              <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="stars.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stars.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-              <caret line="11" column="54" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="54" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <caret line="16" column="18" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -68,8 +89,8 @@
       <file leaf-file-name="ship.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ship.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1289" max-vertical-offset="1875">
-              <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2610">
+              <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -77,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="missile.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="missile.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/missile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.84641635" vertical-offset="14" max-vertical-offset="600">
-              <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="645">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -102,13 +123,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/stars.py" />
         <option value="$PROJECT_DIR$/utils.py" />
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/asteroid.py" />
-        <option value="$PROJECT_DIR$/ship.py" />
+        <option value="$PROJECT_DIR$/stars.py" />
         <option value="$PROJECT_DIR$/missile.py" />
+        <option value="$PROJECT_DIR$/ship.py" />
+        <option value="$PROJECT_DIR$/asteroid.py" />
       </list>
     </option>
   </component>
@@ -367,7 +388,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4524207" vertical-offset="0" max-vertical-offset="1545">
+        <state vertical-scroll-proportion="0.0" vertical-offset="301" max-vertical-offset="1545">
           <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding />
         </state>
@@ -375,28 +396,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42570952" vertical-offset="0" max-vertical-offset="795">
+        <state vertical-scroll-proportion="0.0" vertical-offset="181" max-vertical-offset="780">
           <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="17" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#12#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="91" max-vertical-offset="1230">
-          <caret line="76" column="0" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="1245">
+          <caret line="49" column="38" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="38" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/asteroid.py">
+    <entry file="file://$PROJECT_DIR$/missile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="496" max-vertical-offset="1095">
-          <caret line="62" column="0" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="14" max-vertical-offset="645">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
           </folding>
@@ -405,8 +424,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/stars.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
-          <caret line="11" column="54" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="54" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+          <caret line="16" column="18" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="18" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
           </folding>
@@ -415,18 +434,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ship.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1289" max-vertical-offset="1875">
-          <caret line="112" column="0" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2610">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/missile.py">
+    <entry file="file://$PROJECT_DIR$/asteroid.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.84641635" vertical-offset="14" max-vertical-offset="600">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.57429045" vertical-offset="196" max-vertical-offset="1755">
+          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
           </folding>

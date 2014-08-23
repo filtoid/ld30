@@ -47,6 +47,7 @@ class Game(object):
     def check_collisions(self, obj):
         for item in game_assets:
             if item.check_collision(obj):
+                obj.has_been_hit(item)
                 return True
         return False
 

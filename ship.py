@@ -3,13 +3,35 @@ import math
 import time
 from missile import Missile
 
+class ShipState(object):
+    def __init__(self):
+        self.ALIVE = 0
+        self.DYING = 1
+        self.DEAD = 2
+
+SHIPSTATE = ShipState()
+
+class Shard(object):
+    def __init__(self, pt1, pt2):
+        self.pt1 = pt1
+        self.pt2 = pt2
+
+    def draw(self, screen):
+        pygame.draw.line(screen, (255, 255, 255), (self.pt1['x'], self.pt1['y']),
+                         (self.pt2['x'], self.pt2['y']))
+
+    def update(self):
+        pass
+
 class Ship(object):
     def __init__(self, GAME):
         self.loc = {'x': 100, 'y': 100}
         self.rot = 0
-        self.GAME = GAME
 
+        self.GAME = GAME
         self.MAX_SPEED = 2
+        self.status = SHIPSTATE.ALIVE
+
         self.time_between_shots = 1000
         self.speed = 0
         self.acc = 0.01
@@ -19,8 +41,14 @@ class Ship(object):
         self.missiles = []
         self.gun_point = self.loc
 
+        self.dying_count = 100
+        self.pieces = []
 
     def draw(self, screen):
+
+        if self.status == SHIPSTATE.DYING:
+
+            return
 
         for m in self.missiles:
             m.draw(screen)
@@ -45,6 +73,10 @@ class Ship(object):
 
     def update(self):
 
+        if self.status == SHIPSTATE.DYING:
+
+            return
+
         for m in self.missiles:
             m.update()
 
@@ -67,7 +99,6 @@ class Ship(object):
             self.speed -= self.fric
             if self.speed < 0:
                 self.speed = 0
-
 
         if keys[pygame.K_SPACE]:
             if (time.time()*1000) > self.last_shot + self.time_between_shots:
@@ -110,6 +141,7 @@ class Ship(object):
             noy = self.GAME.height - self.GAME.screen_height
 
         self.GAME.set_offset(nox, noy)
+        self.GAME.check_collisions(self)
 
     def check_collision(self, obj):
         # Can't hit player ship
@@ -118,3 +150,20 @@ class Ship(object):
     def remove_missile(self, m):
         if m in self.missiles:
             self.missiles.remove(m)
+
+    def get_points(self):
+        pt1 = {'x': self.loc['x'] + 20 * math.sin(self.rot),
+               'y': 20 * math.cos(self.rot) + self.loc['y']}
+        pt2 = {'x': 12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'],
+               'y': 12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y']}
+        pt3 = {'x': 12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'],
+               'y': 12 * math.cos(self.rot + (5 * math.pi / 4)) + self.loc['y']}
+
+        return [pt1, pt2, pt3]
+
+    def kill(self):
+        self.status = SHIPSTATE.DYING
+        self.pieces.append()
+
+    def has_been_hit(self, obj):
+        self.kill()
