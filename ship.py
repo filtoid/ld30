@@ -105,6 +105,11 @@ class Ship(object):
 
         self.GAME.set_offset(nox, noy)
 
+
+    def check_collision(self, obj):
+        # Can't hit player ship
+        return False
+
     def remove_missile(self, m):
         if m in self.missiles:
             self.missiles.remove(m)

@@ -5,7 +5,6 @@ from stars import Star
 
 screen = None
 game_assets = []
-#key_manager = []
 GAME = None
 
 # Global Constants
@@ -40,6 +39,12 @@ class Game(object):
         game_assets.append(Ship(GAME))
         for i in range(0, 400):
             game_assets.append(Star(GAME))
+
+    def check_collisions(self, obj):
+        for item in game_assets:
+            if item.check_collision(obj):
+                return True
+        return False
 
 
 if __name__ == '__main__':

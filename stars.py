@@ -4,9 +4,9 @@ import pygame
 import random
 
 class Star(object):
-    def __init__(self, GAME):
-        self.GAME = GAME
-        self.loc = {'x': random.randint(0, GAME.width), 'y': random.randint(0, GAME.height)}
+    def __init__(self, game):
+        self.GAME = game
+        self.loc = {'x': random.randint(0, game.width), 'y': random.randint(0, game.height)}
 
     def draw(self, screen):
         pt1 = [self.loc['x']-1 - self.GAME.offset['x'], self.loc['y'] - 1 - self.GAME.offset['y']]
@@ -22,3 +22,7 @@ class Star(object):
 
     def update(self):
         pass
+
+    def check_collision(self, obj):
+        # Can't hit a star
+        return False
