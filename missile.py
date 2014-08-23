@@ -1,0 +1,30 @@
+__author__ = 'fil'
+
+import pygame
+import math
+
+class Missile(object):
+    def __init__(self, game, ship, loc, rot):
+        self.loc = {'x': loc[0], 'y': loc[1]}
+        self.rot = rot
+        self.SHIP = ship
+        self.GAME = game
+        self.SPEED = 4
+        self.LENGTH = 3
+
+    def draw(self, screen):
+        #self.GAME.offset['x']  + self.GAME.offset['y']
+        pt1 = [self.loc['x'], self.loc['y']]
+        pt2 = [self.LENGTH * math.sin(self.rot + math.pi) + self.loc['x'], self.LENGTH * math.cos(self.rot + math.pi) + self.loc['y']]
+        #pt2 = [self.loc['x']+1 - self.GAME.offset['x'], self.loc['y'] + 1 - self.GAME.offset['y']]
+        pygame.draw.line(screen, (255, 255, 255), (pt1[0], pt1[1]),
+                         (pt2[0], pt2[1]))
+
+    def update(self):
+        self.loc['x'] += self.SPEED * (math.sin(self.rot))
+        self.loc['y'] += self.SPEED * (math.cos(self.rot))
+
+        if self.loc['x'] > self.GAME.width or self.loc['x'] < 0 or \
+            self.loc['y'] > self.GAME.height or self.loc['y'] < 0:
+            self.SHIP.remove_missile(self)
+

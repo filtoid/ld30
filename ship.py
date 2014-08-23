@@ -1,6 +1,7 @@
 import pygame
 import math
-# import main
+import time
+from missile import Missile
 
 class Ship(object):
     def __init__(self, GAME):
@@ -9,15 +10,24 @@ class Ship(object):
         self.GAME = GAME
 
         self.MAX_SPEED = 2
+        self.time_between_shots = 1000
         self.speed = 0
         self.acc = 0.01
         self.dec = 0.02
+        self.last_shot = 0
+        self.missiles = []
+        self.gun_point = self.loc
+
 
     def draw(self, screen):
 
+        for m in self.missiles:
+            m.draw(screen)
+
         ox = self.GAME.offset['x']
         oy = self.GAME.offset['y']
-        pt1 = [20 * math.sin(self.rot) + self.loc['x'] - ox , 20 * math.cos(self.rot) + self.loc['y'] - oy]
+        pt1 = [20 * math.sin(self.rot) + self.loc['x'] - ox, 20 * math.cos(self.rot) + self.loc['y'] - oy]
+        self.gun_point = pt1
         pt2 = [12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'] - ox,
                12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y'] - oy]
         pt3 = [12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'] - ox,
@@ -33,6 +43,10 @@ class Ship(object):
                          (pt1[0], pt1[1]))
 
     def update(self):
+
+        for m in self.missiles:
+            m.update()
+
         keys = pygame.key.get_pressed()
         if keys[pygame.K_a]:
             self.rot += 0.01
@@ -48,6 +62,11 @@ class Ship(object):
             self.speed -= self.dec
             if self.speed < 0:
                 self.speed = 0
+
+        if keys[pygame.K_SPACE]:
+            if (time.time()*1000) > self.last_shot + self.time_between_shots:
+                self.missiles.append(Missile(self.GAME, self, self.gun_point, self.rot))
+                self.last_shot = time.time()*1000
 
         # Update rotation
         if self.rot > 2 * math.pi:
@@ -85,3 +104,7 @@ class Ship(object):
             nox = self.GAME.height - self.GAME.screen_height
 
         self.GAME.set_offset(nox, noy)
+
+    def remove_missile(self, m):
+        if m in self.missiles:
+            self.missiles.remove(m)
