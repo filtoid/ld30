@@ -15,7 +15,7 @@ if __name__ == '__main__':
     if math.degrees(r) != 225:
         print('Failed: ')
         print(str(math.degrees(r)))
-        #assert False
+        assert False
 
     a = {'x': 0, 'y': 0}
     b = {'x': 1, 'y': -1}
