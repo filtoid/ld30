@@ -2,6 +2,7 @@ import sys, pygame
 import time
 from ship import Ship
 from stars import Star
+from asteroid import Asteroid
 
 screen = None
 game_assets = []
@@ -18,6 +19,7 @@ class Game(object):
         self.screen_width = w
         self.screen_height = h
         self.offset = {'x': 0, 'y': 0}
+        self.safe_zone = [{'x': 0, 'y': 0}, {'x': 400, 'y': 400}]
 
     def draw_assets(self):
         if screen is None:
@@ -39,6 +41,8 @@ class Game(object):
         game_assets.append(Ship(GAME))
         for i in range(0, 400):
             game_assets.append(Star(GAME))
+        for i in range(0, 40):
+            game_assets.append(Asteroid(GAME))
 
     def check_collisions(self, obj):
         for item in game_assets:
@@ -70,9 +74,3 @@ if __name__ == '__main__':
                 key = event.key
                 if event.key == pygame.K_ESCAPE or event.key == pygame.K_q:
                     Quit = True
-                #if key not in key_manager:
-                #    key_manager.append(key)
-
-            #elif event.type == pygame.KEYUP:
-            #    if key in key_manager:
-            #        key_manager.remove(key)

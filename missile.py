@@ -32,4 +32,3 @@ class Missile(object):
 
         if self.GAME.check_collisions(self):
             self.SHIP.remove_missile(self)
-

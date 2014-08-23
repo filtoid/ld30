@@ -14,6 +14,7 @@ class Ship(object):
         self.speed = 0
         self.acc = 0.01
         self.dec = 0.02
+        self.fric = 0.005
         self.last_shot = 0
         self.missiles = []
         self.gun_point = self.loc
@@ -62,6 +63,11 @@ class Ship(object):
             self.speed -= self.dec
             if self.speed < 0:
                 self.speed = 0
+        else:
+            self.speed -= self.fric
+            if self.speed < 0:
+                self.speed = 0
+
 
         if keys[pygame.K_SPACE]:
             if (time.time()*1000) > self.last_shot + self.time_between_shots:
@@ -101,10 +107,9 @@ class Ship(object):
             noy = self.loc['y'] - (self.GAME.screen_height/2)
 
         if self.loc['y'] > self.GAME.height - (self.GAME.screen_height/2):
-            nox = self.GAME.height - self.GAME.screen_height
+            noy = self.GAME.height - self.GAME.screen_height
 
         self.GAME.set_offset(nox, noy)
-
 
     def check_collision(self, obj):
         # Can't hit player ship
