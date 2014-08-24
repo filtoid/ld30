@@ -11,7 +11,6 @@ def find_angle_of_point(e, s):
     '''
     diffx = s['x'] - e['x']
     diffy = s['y'] - e['y']
-
     if diffx == 0:
         if diffy > 0:
             return 0

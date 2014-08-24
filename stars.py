@@ -9,7 +9,6 @@ class Star(object):
         self.loc = {'x': random.randint(0, game.width), 'y': random.randint(0, game.height)}
 
     def draw(self, screen):
-
         if self.loc['x'] < self.GAME.offset['x'] or\
             self.loc['x'] > self.GAME.offset['x'] + self.GAME.screen_width or\
             self.loc['y'] < self.GAME.offset['y'] or\

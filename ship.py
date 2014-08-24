@@ -2,6 +2,7 @@ import pygame
 import math
 import time
 from missile import Missile
+import random
 
 class ShipState(object):
     def __init__(self):
@@ -12,42 +13,58 @@ class ShipState(object):
 SHIPSTATE = ShipState()
 
 class Shard(object):
-    def __init__(self, pt1, pt2):
-        self.pt1 = pt1
-        self.pt2 = pt2
+    def __init__(self, pt1, pt2, dir):
+        self.pt1 = {'x': pt1['x'], 'y': pt1['y']}
+        self.pt2 = {'x': pt2['x'], 'y': pt2['y']}
+        self.dir = dir
+        self.speed = float(random.randint(5, 10))/20
 
-    def draw(self, screen):
-        pygame.draw.line(screen, (255, 255, 255), (self.pt1['x'], self.pt1['y']),
-                         (self.pt2['x'], self.pt2['y']))
+    def draw(self, screen, offset):
+        ox = offset['x']
+        oy = offset['y']
+        pygame.draw.line(screen, (255, 255, 255), (self.pt1['x']-ox, self.pt1['y']-oy),
+                         (self.pt2['x']-ox, self.pt2['y']-oy))
 
     def update(self):
-        pass
+        print('update shard')
+        print(str(self.speed))
+        print(str(self.dir))
+        self.pt1['x'] += self.speed * math.sin(self.dir)
+        self.pt1['y'] += self.speed * math.cos(self.dir)
+        self.pt2['x'] += self.speed * math.sin(self.dir)
+        self.pt2['y'] += self.speed * math.cos(self.dir)
+        print(self.pt1)
+        print(self.pt2)
+
 
 class Ship(object):
     def __init__(self, GAME):
-        self.loc = {'x': 100, 'y': 100}
-        self.rot = 0
-
+        self.START = {'x': 100, 'y': 100}
         self.GAME = GAME
         self.MAX_SPEED = 2
-        self.status = SHIPSTATE.ALIVE
-
+        self.DYING_TIMER = 1000
         self.time_between_shots = 1000
+        self.missiles = []
+        self.pieces = []
+        self.reset()
+
+    def reset(self):
         self.speed = 0
         self.acc = 0.01
         self.dec = 0.02
         self.fric = 0.005
         self.last_shot = 0
-        self.missiles = []
-        self.gun_point = self.loc
-
-        self.dying_count = 100
-        self.pieces = []
+        self.status = SHIPSTATE.ALIVE
+        self.loc = {'x': self.START['x'], 'y': self.START['y'] }
+        self.rot = 0
+        self.gun_point = {'x': self.loc['x'], 'y': self.loc['y']}
+        self.dying_count = self.DYING_TIMER
 
     def draw(self, screen):
 
         if self.status == SHIPSTATE.DYING:
-
+            for shard in self.pieces:
+                shard.draw(screen, self.GAME.offset)
             return
 
         for m in self.missiles:
@@ -56,7 +73,7 @@ class Ship(object):
         ox = self.GAME.offset['x']
         oy = self.GAME.offset['y']
         pt1 = [20 * math.sin(self.rot) + self.loc['x'] - ox, 20 * math.cos(self.rot) + self.loc['y'] - oy]
-        self.gun_point = pt1
+        self.gun_point = {'x': pt1[0], 'y': pt1[1]}
         pt2 = [12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'] - ox,
                12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y'] - oy]
         pt3 = [12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'] - ox,
@@ -72,9 +89,14 @@ class Ship(object):
                          (pt1[0], pt1[1]))
 
     def update(self):
-
         if self.status == SHIPSTATE.DYING:
-
+            for shard in self.pieces:
+                shard.update()
+                if self.dying_count <= 0:
+                    print('reset dying count')
+                    self.reset()
+                    self.pieces = []
+            self.dying_count -= 1
             return
 
         for m in self.missiles:
@@ -151,19 +173,25 @@ class Ship(object):
         if m in self.missiles:
             self.missiles.remove(m)
 
-    def get_points(self):
-        pt1 = {'x': self.loc['x'] + 20 * math.sin(self.rot),
-               'y': 20 * math.cos(self.rot) + self.loc['y']}
-        pt2 = {'x': 12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'],
-               'y': 12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y']}
-        pt3 = {'x': 12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'],
-               'y': 12 * math.cos(self.rot + (5 * math.pi / 4)) + self.loc['y']}
+    def get_points(self, ox=0, oy=0):
+        pt1 = {'x': ox +self.loc['x'] + 20 * math.sin(self.rot),
+               'y': oy + 20 * math.cos(self.rot) + self.loc['y']}
+        pt2 = {'x': ox + 12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'],
+               'y': oy + 12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y']}
+        pt3 = {'x': ox + 12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'],
+               'y': oy + 12 * math.cos(self.rot + (5 * math.pi / 4)) + self.loc['y']}
 
         return [pt1, pt2, pt3]
 
     def kill(self):
         self.status = SHIPSTATE.DYING
-        self.pieces.append()
+        arypts = self.get_points()
+        print('ship points')
+        print(arypts)
+        self.pieces.append(Shard(arypts[0], arypts[1], self.rot))
+        self.pieces.append(Shard(arypts[1], arypts[2], self.rot))
+        self.pieces.append(Shard(arypts[2], arypts[0], self.rot))
 
     def has_been_hit(self, obj):
-        self.kill()
+        if self.status != SHIPSTATE.DYING:
+            self.kill()

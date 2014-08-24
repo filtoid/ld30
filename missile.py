@@ -6,7 +6,7 @@ import math
 
 class Missile(object):
     def __init__(self, game, ship, loc, rot):
-        self.loc = {'x': loc[0], 'y': loc[1]}
+        self.loc = {'x': loc['x'], 'y': loc['y']}
         self.rot = rot
         self.SHIP = ship
         self.GAME = game
@@ -33,5 +33,8 @@ class Missile(object):
         if self.GAME.check_collisions(self):
             self.SHIP.remove_missile(self)
 
-    def get_points(self):
-        return self.loc
+    def get_points(self, ox=0, oy=0):
+        return [{'x': self.loc['x'] + ox, 'y': self.loc['y'] + oy}]
+
+    def has_been_hit(self, obj):
+        self.SHIP.remove_missile(self)

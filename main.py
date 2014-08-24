@@ -3,19 +3,22 @@ import time
 from ship import Ship
 from stars import Star
 from asteroid import Asteroid
+import datetime
+
 
 screen = None
 game_assets = []
 GAME = None
 
 # Global Constants
-w = 1024
-h = 1024
+w = 600
+h = 600
+
 
 class Game(object):
     def __init__(self):
-        self.width = 4000
-        self.height = 4000
+        self.width = 2000
+        self.height = 2000
         self.screen_width = w
         self.screen_height = h
         self.offset = {'x': 0, 'y': 0}
@@ -41,14 +44,20 @@ class Game(object):
         game_assets.append(Ship(GAME))
         for i in range(0, 400):
             game_assets.append(Star(GAME))
-        for i in range(0, 40):
+        for i in range(0, 20):
             game_assets.append(Asteroid(GAME))
 
     def check_collisions(self, obj):
         for item in game_assets:
-            if item.check_collision(obj):
-                obj.has_been_hit(item)
-                return True
+
+            # Optimisation don't figure out collisions for object that's nowhere near
+            if not (max(item.loc['x'],obj.loc['x']) - min(item.loc['x'],obj.loc['x'])) \
+                    > self.screen_width/2:
+
+                if item.check_collision(obj):
+                    obj.has_been_hit(item)
+                    return True
+
         return False
 
 
@@ -57,14 +66,16 @@ if __name__ == '__main__':
     pygame.init()
 
     size = (w, h)
-    screen = pygame.display.set_mode(size)
+    from pygame.locals import *
+    flags = DOUBLEBUF
+
+    screen = pygame.display.set_mode(size, flags)
 
     Quit = False
     GAME = Game()
     GAME.game_setup()
 
     while Quit is not True:
-
         GAME.update_assets()
         GAME.draw_assets()
 
