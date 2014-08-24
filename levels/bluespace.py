@@ -1,12 +1,12 @@
 __author__ = 'fil'
 
 import pygame
+from levels.worldnames import WorldNames
+from utils import is_point_inside_rect
 from stars import Star
 from asteroid import Asteroid
-from utils import is_point_inside_rect
-from levels.worldnames import WorldNames
 
-class RedSpace(object):
+class BlueSpace(object):
     def __init__(self, game, size):
         self.width = size['x']
         self.height = size['y']
@@ -15,9 +15,9 @@ class RedSpace(object):
         self.player = game.player
         self._setup()
 
-        self.blue_exit = {'x': game.width-400, 'y': game.height-400,
-                          'w': 300, 'h': 300, 'exit_world': WorldNames.BLUESPACE,
-                          'exit_x': 200, 'exit_y': 200}
+        self.red_exit = {'x': 50, 'y': 50,
+                          'w': 300, 'h': 300, 'exit_world': WorldNames.REDSPACE,
+                          'exit_x': game.width-250, 'exit_y': game.height-250}
 
     def _setup(self):
         for i in range(0, 400):
@@ -27,21 +27,21 @@ class RedSpace(object):
 
     def draw(self, screen):
         #Red space is red (obviously)
-        screen.fill((60, 0, 0))
+        screen.fill((0, 0, 60))
 
         ox = self.GAME.offset['x']
         oy = self.GAME.offset['y']
 
-        pygame.draw.rect(screen, (0, 0, 60), (self.blue_exit['x']-ox, self.blue_exit['y']-oy,
-                                            self.blue_exit['w'], self.blue_exit['h']))
+        pygame.draw.rect(screen, (60, 0, 0), (self.red_exit['x']-ox, self.red_exit['y']-oy,
+                                        self.red_exit['w'], self.red_exit['h']))
 
         for item in self.game_assets:
             item.draw(screen)
 
     def update(self):
 
-        if is_point_inside_rect(self.blue_exit, self.GAME.player.loc):
-            self.GAME.player.exit = self.blue_exit
+        if is_point_inside_rect(self.red_exit, self.GAME.player.loc):
+            self.GAME.player.exit = self.red_exit
         else:
             self.GAME.player.exit = None
 

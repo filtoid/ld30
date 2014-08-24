@@ -1,17 +1,19 @@
 import sys, pygame
 from levels.redspace import RedSpace
+from levels.bluespace import BlueSpace
+from levels.worldnames import WorldNames
 
-import datetime
 from ship import Ship
 
 screen = None
 game_assets = []
 GAME = None
 
+game_worlds = []
+
 # Global Constants
 w = 600
 h = 600
-
 
 class Game(object):
     def __init__(self):
@@ -22,7 +24,11 @@ class Game(object):
         self.offset = {'x': 0, 'y': 0}
         self.safe_zone = [{'x': 0, 'y': 0}, {'x': 400, 'y': 400}]
         self.player =  Ship(self)
-        self.current_level = RedSpace(self, {'x': self.width, 'y': self.height})
+
+        game_worlds.append(RedSpace(self, {'x': self.width, 'y': self.height}))
+        game_worlds.append(BlueSpace(self, {'x': self.width, 'y': self.height}))
+
+        self.current_level = game_worlds[0]
 
     def draw_assets(self):
         if screen is None:
@@ -38,10 +44,12 @@ class Game(object):
         self.player.update()
         self.current_level.update()
 
-    def change_level(self, level):
-        self.current_level = level
-        self.player.loc = {'x': 100, 'y': 100}
-
+    def change_level(self, level, player_loc=None):
+        self.current_level = self.get_worlds_list()[level]
+        if player_loc is None:
+            self.player.loc = {'x': 100, 'y': 100}
+        else:
+            self.player.loc = {'x': player_loc['x'], 'y': player_loc['y']}
     def check_collisions(self, obj):
         for item in self.current_level.game_assets:
 
@@ -54,6 +62,9 @@ class Game(object):
                     return True
 
         return False
+
+    def get_worlds_list(self):
+        return game_worlds
 
 
 if __name__ == '__main__':

@@ -42,6 +42,8 @@ class Ship(object):
         self.missiles = []
         self.pieces = []
         self.reset()
+        self.exit = None
+        self.exit_counter = 0
 
     def reset(self):
         self.speed = 0
@@ -86,6 +88,10 @@ class Ship(object):
                          (pt1[0], pt1[1]))
 
     def update(self):
+
+        if self.exit_counter>0:
+            self.exit_counter-=1
+
         if self.status == SHIPSTATE.DYING:
             for shard in self.pieces:
                 shard.update()
@@ -104,6 +110,12 @@ class Ship(object):
 
         if keys[pygame.K_d]:
             self.rot -= 0.01
+
+        if self.exit_counter==0 and keys[pygame.K_e] and self.exit != None:
+            loc_obj = {'x': self.exit['exit_x'], 'y': self.exit['exit_y']}
+            self.GAME.change_level(self.exit['exit_world'],loc_obj)
+            self.exit = None
+            self.exit_counter = 500
 
         if keys[pygame.K_w]:
             self.speed += self.acc
@@ -182,8 +194,10 @@ class Ship(object):
     def kill(self):
         self.status = SHIPSTATE.DYING
         arypts = self.get_points()
+        pt = {'x': self.loc['x'], 'y': self.loc['y']}
         self.pieces.append(Shard(arypts[0], arypts[1], self.rot))
-        self.pieces.append(Shard(arypts[1], arypts[2], self.rot))
+        self.pieces.append(Shard(arypts[1], pt, self.rot))
+        self.pieces.append(Shard(arypts[2], pt, self.rot))
         self.pieces.append(Shard(arypts[2], arypts[0], self.rot))
 
     def has_been_hit(self, obj):
