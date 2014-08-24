@@ -40,6 +40,7 @@ class Game(object):
 
     def change_level(self, level):
         self.current_level = level
+        self.player.loc = {'x': 100, 'y': 100}
 
     def check_collisions(self, obj):
         for item in self.current_level.game_assets:

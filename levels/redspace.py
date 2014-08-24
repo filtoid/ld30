@@ -38,8 +38,9 @@ class RedSpace(object):
 
     def update(self):
 
-        #if is_point_insied_rect(self.blue_exit, self.GAME.player.loc):
-        #    self.GAME.change_level(RedSpace(self.GAME, {'x': self.width, 'y': self.height}))
+        if is_point_insied_rect(self.blue_exit, self.GAME.player.loc):
+            self.GAME.change_level(RedSpace(self.GAME, {'x': self.width, 'y': self.height}))
+
 
         for item in self.game_assets:
             item.update()
