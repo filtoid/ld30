@@ -26,15 +26,10 @@ class Shard(object):
                          (self.pt2['x']-ox, self.pt2['y']-oy))
 
     def update(self):
-        print('update shard')
-        print(str(self.speed))
-        print(str(self.dir))
         self.pt1['x'] += self.speed * math.sin(self.dir)
         self.pt1['y'] += self.speed * math.cos(self.dir)
         self.pt2['x'] += self.speed * math.sin(self.dir)
         self.pt2['y'] += self.speed * math.cos(self.dir)
-        print(self.pt1)
-        print(self.pt2)
 
 
 class Ship(object):
