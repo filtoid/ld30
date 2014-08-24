@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94cf8ea0-576d-4ed0-a1ca-35bf5fc11ca1" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/missile.py" afterPath="$PROJECT_DIR$/missile.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ship.py" afterPath="$PROJECT_DIR$/ship.py" />
     </list>
     <ignored path="ld30.iws" />
@@ -57,21 +58,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ship.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ship.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ship.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2329" max-vertical-offset="2910">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.32874355" vertical-offset="1084" max-vertical-offset="2865">
+              <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="missile.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="missile.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/missile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.28399312" vertical-offset="0" max-vertical-offset="660">
-              <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+              <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -92,11 +93,11 @@
       <list>
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$PROJECT_DIR$/stars.py" />
-        <option value="$PROJECT_DIR$/missile.py" />
         <option value="$PROJECT_DIR$/asteroid.py" />
         <option value="$PROJECT_DIR$/main.py" />
-        <option value="$PROJECT_DIR$/ship.py" />
         <option value="$PROJECT_DIR$/utils.py" />
+        <option value="$PROJECT_DIR$/missile.py" />
+        <option value="$PROJECT_DIR$/ship.py" />
       </list>
     </option>
   </component>
@@ -531,18 +532,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ship.py">
+    <entry file="file://$PROJECT_DIR$/missile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2910">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="630">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/missile.py">
+    <entry file="file://$PROJECT_DIR$/ship.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.28399312" vertical-offset="0" max-vertical-offset="660">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.32874355" vertical-offset="1084" max-vertical-offset="2865">
+          <caret line="89" column="41" selection-start-line="89" selection-start-column="41" selection-end-line="89" selection-end-column="41" />
           <folding />
         </state>
       </provider>

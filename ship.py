@@ -88,7 +88,6 @@ class Ship(object):
             for shard in self.pieces:
                 shard.update()
                 if self.dying_count <= 0:
-                    print('reset dying count')
                     self.reset()
                     self.pieces = []
             self.dying_count -= 1
@@ -181,8 +180,6 @@ class Ship(object):
     def kill(self):
         self.status = SHIPSTATE.DYING
         arypts = self.get_points()
-        print('ship points')
-        print(arypts)
         self.pieces.append(Shard(arypts[0], arypts[1], self.rot))
         self.pieces.append(Shard(arypts[1], arypts[2], self.rot))
         self.pieces.append(Shard(arypts[2], arypts[0], self.rot))

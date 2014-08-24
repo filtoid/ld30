@@ -14,11 +14,9 @@ class Missile(object):
         self.LENGTH = 3
 
     def draw(self, screen):
-        # self.GAME.offset['x']  + self.GAME.offset['y']
         pt1 = [self.loc['x'], self.loc['y']]
         pt2 = [self.LENGTH * math.sin(self.rot + math.pi) + self.loc['x'],
                self.LENGTH * math.cos(self.rot + math.pi) + self.loc['y']]
-        #pt2 = [self.loc['x']+1 - self.GAME.offset['x'], self.loc['y'] + 1 - self.GAME.offset['y']]
         pygame.draw.line(screen, (255, 255, 255), (pt1[0], pt1[1]),
                          (pt2[0], pt2[1]))
 
