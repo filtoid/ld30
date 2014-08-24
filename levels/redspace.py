@@ -22,8 +22,11 @@ class RedSpace(object):
     def _setup(self):
         for i in range(0, 400):
             self.game_assets.append(Star(self.GAME))
-        for i in range(0, 20):
-            self.game_assets.append(Asteroid(self.GAME))
+
+        for i in range(2, 5):
+            for j in range(2, 5):
+                loc = {'x': i * 400, 'y': j * 400}
+                self.game_assets.append(Asteroid(self.GAME, self, loc))
 
     def draw(self, screen):
         #Red space is red (obviously)
