@@ -68,7 +68,9 @@ class Ship(object):
         ox = self.GAME.offset['x']
         oy = self.GAME.offset['y']
         pt1 = [20 * math.sin(self.rot) + self.loc['x'] - ox, 20 * math.cos(self.rot) + self.loc['y'] - oy]
+
         self.gun_point = {'x': pt1[0], 'y': pt1[1]}
+
         pt2 = [12 * math.sin(self.rot + (3 * math.pi / 4)) + self.loc['x'] - ox,
                12 * math.cos(self.rot + (3 * math.pi / 4)) + self.loc['y'] - oy]
         pt3 = [12 * math.sin(self.rot + (5 * math.pi / 4)) + self.loc['x'] - ox,

@@ -31,6 +31,13 @@ def find_angle_of_point(e, s):
 
     return -1
 
+def is_point_insied_rect(rect, pt):
+    if pt['x'] > rect['x'] and pt['x'] < rect['x'] + rect['w'] and\
+        pt['y'] > rect['y'] and pt['y'] < rect['y'] + rect['h']:
+        return True
+
+    return False
+
 def is_point_inside_triangle(tri, pt):
     tp1 = tri[0]
     tp2 = tri[1]

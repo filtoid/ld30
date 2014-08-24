@@ -10,7 +10,7 @@ def setup_asteroid_spines(obj):
     while complete == False:
         x = random.randint(0, obj.GAME.width)
         y = random.randint(0, obj.GAME.height)
-        if not (x > obj.GAME.safe_zone[0]['x'] and x > obj.GAME.safe_zone[1]['x'] and \
+        if not (x > obj.GAME.safe_zone[0]['x'] and x < obj.GAME.safe_zone[1]['x'] and \
             y > obj.GAME.safe_zone[0]['y'] and y < obj.GAME.safe_zone[1]['y']):
             obj.loc = {'x': x, 'y': y}
             complete = True
