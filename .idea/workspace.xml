@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94cf8ea0-576d-4ed0-a1ca-35bf5fc11ca1" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/asteroid.py" afterPath="$PROJECT_DIR$/asteroid.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/levels/bluespace.py" afterPath="$PROJECT_DIR$/levels/bluespace.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/enemy.py" afterPath="$PROJECT_DIR$/enemy.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/levels/redspace.py" afterPath="$PROJECT_DIR$/levels/redspace.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ship.py" afterPath="$PROJECT_DIR$/ship.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ld30.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,8 +41,8 @@
       <file leaf-file-name="redspace.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/levels/redspace.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="855">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="28" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="394" max-vertical-offset="975">
+              <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -49,11 +50,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="bluespace.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="bluespace.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/levels/bluespace.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.75757575" vertical-offset="0" max-vertical-offset="900">
-              <caret line="30" column="71" selection-start-line="30" selection-start-column="71" selection-end-line="30" selection-end-column="71" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="e#20#33#0" expanded="true" />
               </folding>
@@ -71,22 +72,24 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utils.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/utils.py">
+      <file leaf-file-name="ship.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ship.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1635">
-              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="2509" max-vertical-offset="3090">
+              <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ship.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ship.py">
+      <file leaf-file-name="enemy.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/enemy.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2201" max-vertical-offset="3105">
-              <caret line="176" column="31" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
-              <folding />
+            <state vertical-scroll-proportion="0.7160069" vertical-offset="979" max-vertical-offset="1560">
+              <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+              <folding>
+                <element signature="e#20#46#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,14 +110,14 @@
         <option value="$PROJECT_DIR$/tests.py" />
         <option value="$PROJECT_DIR$/stars.py" />
         <option value="$PROJECT_DIR$/missile.py" />
-        <option value="$PROJECT_DIR$/enemy.py" />
         <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/levels/worldnames.py" />
         <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/ship.py" />
         <option value="$PROJECT_DIR$/asteroid.py" />
-        <option value="$PROJECT_DIR$/levels/redspace.py" />
         <option value="$PROJECT_DIR$/levels/bluespace.py" />
+        <option value="$PROJECT_DIR$/ship.py" />
+        <option value="$PROJECT_DIR$/levels/redspace.py" />
+        <option value="$PROJECT_DIR$/enemy.py" />
       </list>
     </option>
   </component>
@@ -337,13 +340,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1666" y="256" width="979" height="743" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20693277" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20693277" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -452,8 +455,7 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="255">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
-            <marker date="1408885605695" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1408885605695" expanded="true" signature="-1:-1" placeholder="..." />
+            <element signature="e#20#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -579,6 +581,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33273703" vertical-offset="3924" max-vertical-offset="5310">
           <caret line="274" column="4" selection-start-line="274" selection-start-column="4" selection-end-line="274" selection-end-column="4" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -598,17 +601,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/enemy.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding>
-            <marker date="1408885605695" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1408885605695" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1485">
@@ -625,17 +617,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ship.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2201" max-vertical-offset="3105">
-          <caret line="176" column="31" selection-start-line="176" selection-start-column="31" selection-end-line="176" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="225" max-vertical-offset="1635">
+        <state vertical-scroll-proportion="0.8333333" vertical-offset="0" max-vertical-offset="1635">
           <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
           <folding />
         </state>
@@ -649,22 +633,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/levels/redspace.py">
+    <entry file="file://$PROJECT_DIR$/ship.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="135" max-vertical-offset="855">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="28" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="2509" max-vertical-offset="3090">
+          <caret line="202" column="35" selection-start-line="202" selection-start-column="35" selection-end-line="202" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/levels/bluespace.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="900">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/levels/bluespace.py">
+    <entry file="file://$PROJECT_DIR$/levels/redspace.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75757575" vertical-offset="0" max-vertical-offset="900">
-          <caret line="30" column="71" selection-start-line="30" selection-start-column="71" selection-end-line="30" selection-end-column="71" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="394" max-vertical-offset="975">
+          <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
           <folding>
             <element signature="e#20#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/enemy.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7160069" vertical-offset="979" max-vertical-offset="1560">
+          <caret line="93" column="16" selection-start-line="93" selection-start-column="16" selection-end-line="93" selection-end-column="16" />
+          <folding>
+            <element signature="e#20#46#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -3,8 +3,10 @@ __author__ = 'fil'
 import pygame
 from stars import Star
 from asteroid import Asteroid
+from enemy import EnemyShip
 from utils import is_point_inside_rect
 from levels.worldnames import WorldNames
+import math
 
 class RedSpace(object):
     def __init__(self, game, size):
@@ -22,6 +24,12 @@ class RedSpace(object):
     def _setup(self):
         for i in range(0, 400):
             self.game_assets.append(Star(self.GAME))
+
+        self.game_assets.append(EnemyShip(self.GAME, [{'x': 50, 'y': 500, 'rot': 3*math.pi/2} ,
+                         {'x': 500, 'y': 500, 'rot': math.pi/2} ]))
+
+        self.game_assets.append(EnemyShip(self.GAME, [{'x': 700, 'y': 600, 'rot': math.pi/2} ,
+                         {'x': 10, 'y': 600, 'rot': 3*math.pi/2} ]))
 
         for i in range(2, 5):
             for j in range(2, 5):

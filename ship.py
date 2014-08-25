@@ -5,12 +5,11 @@ from missile import Missile
 import random
 
 class ShipState(object):
-    def __init__(self):
-        self.ALIVE = 0
-        self.DYING = 1
-        self.DEAD = 2
+    ALIVE = 0
+    DYING = 1
+    DEAD = 2
 
-SHIPSTATE = ShipState()
+#SHIPSTATE = ShipState()
 
 class Shard(object):
     def __init__(self, pt1, pt2, dir):
@@ -51,7 +50,7 @@ class Ship(object):
         self.dec = 0.02
         self.fric = 0.005
         self.last_shot = 0
-        self.status = SHIPSTATE.ALIVE
+        self.status = ShipState.ALIVE
         self.loc = {'x': self.START['x'], 'y': self.START['y'] }
         self.rot = 0
         self.gun_point = {'x': self.loc['x'], 'y': self.loc['y']}
@@ -59,7 +58,7 @@ class Ship(object):
 
     def draw(self, screen):
 
-        if self.status == SHIPSTATE.DYING:
+        if self.status == ShipState.DYING:
             for shard in self.pieces:
                 shard.draw(screen, self.GAME.offset)
             return
@@ -92,7 +91,7 @@ class Ship(object):
         if self.exit_counter>0:
             self.exit_counter-=1
 
-        if self.status == SHIPSTATE.DYING:
+        if self.status == ShipState.DYING:
             for shard in self.pieces:
                 shard.update()
                 if self.dying_count <= 0:
@@ -192,7 +191,7 @@ class Ship(object):
         return [pt1, pt2, pt3]
 
     def kill(self):
-        self.status = SHIPSTATE.DYING
+        self.status = ShipState.DYING
         arypts = self.get_points()
         pt = {'x': self.loc['x'], 'y': self.loc['y']}
         self.pieces.append(Shard(arypts[0], arypts[1], self.rot))
@@ -201,5 +200,5 @@ class Ship(object):
         self.pieces.append(Shard(arypts[2], arypts[0], self.rot))
 
     def has_been_hit(self, obj):
-        if self.status != SHIPSTATE.DYING:
+        if self.status != ShipState.DYING:
             self.kill()
